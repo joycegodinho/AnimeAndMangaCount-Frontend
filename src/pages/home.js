@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
-import Header from '../components/Header';
-import Navigation from '../components/Navigation'
+import Button from '../components/Button';
+
 
 const Home = () => {
     useEffect(() => {
@@ -9,10 +9,8 @@ const Home = () => {
     });
     return (
         <div>
-            <Header />
-            <Navigation />
             <p>These is my home page</p>
-
+            <Button>Click me!</Button>
         </div>
     );
 }
