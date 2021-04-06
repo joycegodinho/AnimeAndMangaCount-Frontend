@@ -1,0 +1,22 @@
+{
+  "name": "animeandmangacount-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^17.0.3",
+    "parcel-bundler": "^1.12.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-markdown": "^5.0.3",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.2.3"
+  }
+}
