@@ -1,13 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+//import { getAll } from '../services/animes.services';
 
-const Animes = () => {
+import axios from 'axios'
+
+const Animes =  () => {
+    const [animes, setAnimes] = useState([])
+
     useEffect(() => {
         document.title = 'Animes'
-    });
+        const getAll = async () => {
+            try {
+              const {data: animes} = await axios.get('http://localhost:1234/animes');  
+              setAnimes(animes)
+              console.log(animes)
+            } catch (error) {
+              console.error(error);
+            }   
+        }
+        getAll();
+    },[]);
+
+
     return (
         <div>
             <h1>Anime Count</h1>
             <p>These are my animes</p>
+            <ul>
+                {animes.map(({ _id, title, number, content }, i) => (
+                    <li key={i}>{title}</li>
+                ))}
+            </ul>
+ 
         </div>
     );
 }
