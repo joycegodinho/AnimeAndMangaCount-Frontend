@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Feed from '../components/Feed';
 //import { getAll } from '../services/animes.services';
 
 import axios from 'axios'
@@ -25,11 +26,8 @@ const Animes =  () => {
         <div>
             <h1>Anime Count</h1>
             <p>These are my animes</p>
-            <ul>
-                {animes.map(({ _id, title, number, content }, i) => (
-                    <li key={i}>{title}</li>
-                ))}
-            </ul>
+            <Feed notes={animes} />
+
  
         </div>
     );

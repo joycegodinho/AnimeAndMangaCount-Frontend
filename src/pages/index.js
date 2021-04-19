@@ -6,6 +6,7 @@ import Layout from '../components/Layout';
 import Home from './home';
 import Animes from './animes';
 import Mangas from './mangas';
+import AnimePage from './singleanime';
 
 
 const Pages = () => {
@@ -13,8 +14,9 @@ const Pages = () => {
         <Router> 
             <Layout>
                 <Route exact path="/" component={Home} /> 
-                <Route path="/animes" component={Animes} /> 
-                <Route path="/mangas" component={Mangas} /> 
+                <Route exact path="/animes" component={Animes} /> 
+                <Route exact path="/mangas" component={Mangas} /> 
+                <Route path="/animes/:id" component={AnimePage} /> 
             </Layout>
   
         </Router>
