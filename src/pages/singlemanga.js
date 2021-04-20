@@ -33,43 +33,45 @@ const StyledMark = styled.mark`
     
 `;
 
-const AnimePage =  props => {
-    const [anime, setAnime] = useState([])
+const MangaPage =  props => {
+    const [manga, setManga] = useState([])
     
     
 
     useEffect(() => {
-        document.title = 'Anime'
-        const getAnime = async () => {
+        document.title = 'Manga'
+        const getManga = async () => {
             try {
               const id = await props.match.params.id
+              const x = await props.match
+              console.log(x.path)
               console.log(id)
-              const {data: anime} = await axios.get(`http://localhost:1234/animes/${id}`);  
+              const {data: manga} = await axios.get(`http://localhost:1234/mangas/${id}`);  
               
-              await setAnime(anime)
+              await setManga(manga)
               
-              console.log(anime)
+              console.log(manga)
             } catch (error) {
               console.error(error);
             }   
         }
-        getAnime();
+        getManga();
     }, []);
 
-    console.log(anime)
+
 
     return (
         <StyledNote>
-            <h3>{anime.title}</h3>
+            <h3>{manga.title}</h3>
             <h4>
                 <em>Number </em>
                     <StyledMark>
-                        {anime.number}
+                        {manga.number}
                     </StyledMark>
             </h4>            
-            <ReactMarkdown source={anime.content} />
+            <ReactMarkdown source={manga.content} />
         </StyledNote>
     );
 }
 
-export default AnimePage;
+export default MangaPage;

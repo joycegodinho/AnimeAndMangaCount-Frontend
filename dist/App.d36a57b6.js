@@ -64527,9 +64527,11 @@ var Note = function Note(_ref) {
   var note = _ref.note;
   return _react.default.createElement(StyledNote, null, _react.default.createElement("h3", null, note.title), _react.default.createElement("h4", null, _react.default.createElement("em", null, "Number "), _react.default.createElement(StyledMark, null, note.number)), _react.default.createElement(MetaInfoTime, null, _react.default.createElement("em", null, "created at "), " ", (0, _dateFns.format)(new Date(note.createdAt), 'MM dd yyyy H:mm'), " ", _react.default.createElement("br", null), _react.default.createElement("em", null, "updated at "), (0, _dateFns.format)(new Date(note.updatedAt), 'MM dd yyyy H:mm')), _react.default.createElement(_reactMarkdown.default, {
     source: note.content
-  }), _react.default.createElement(_reactRouterDom.Link, {
+  }), document.title == 'Animes' ? _react.default.createElement(_reactRouterDom.Link, {
     to: "animes/".concat(note._id)
-  }, note._id));
+  }, "animes") : _react.default.createElement(_reactRouterDom.Link, {
+    to: "mangas/".concat(note._id)
+  }, "mangas"));
 };
 
 var _default = Note;
@@ -66354,9 +66356,17 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _Note = _interopRequireDefault(require("../components/Note"));
+var _reactMarkdown = _interopRequireDefault(require("react-markdown"));
+
+var _dateFns = require("date-fns");
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _axios = _interopRequireDefault(require("axios"));
+
+var _Note = _interopRequireDefault(require("../components/Note"));
+
+var _templateObject, _templateObject2, _templateObject3;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -66379,6 +66389,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+//import { getAll } from '../services/animes.services';
+var StyledNote = _styledComponents.default.article(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 800px;\n    margin: 0 auto;\n    margin-bottom: 2em;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    padding-left: 1em;\n    padding-right: 1em;\n    border-radius: 10px;\n    background-color: #FEDEEF;\n\n"])));
+
+var MetaInfoTime = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 500px;\n    height: 50px;  \n    \n"])));
+
+var StyledMark = _styledComponents.default.mark(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    background-color: #FDFF70; \n    border-radius: 0.5em 0.3em;\n    \n"])));
 
 var AnimePage = function AnimePage(props) {
   var _useState = (0, _react.useState)([]),
@@ -66443,12 +66462,142 @@ var AnimePage = function AnimePage(props) {
     getAnime();
   }, []);
   console.log(anime);
-  return _react.default.createElement("div", null, _react.default.createElement("p", null, "These is my anime"), _react.default.createElement("div", null));
+  return _react.default.createElement(StyledNote, null, _react.default.createElement("h3", null, anime.title), _react.default.createElement("h4", null, _react.default.createElement("em", null, "Number "), _react.default.createElement(StyledMark, null, anime.number)), _react.default.createElement(_reactMarkdown.default, {
+    source: anime.content
+  }));
 };
 
 var _default = AnimePage;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../components/Note":"components/Note.js","axios":"../node_modules/axios/index.js"}],"pages/index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-markdown":"../node_modules/react-markdown/lib/react-markdown.js","date-fns":"../node_modules/date-fns/esm/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","axios":"../node_modules/axios/index.js","../components/Note":"components/Note.js"}],"pages/singlemanga.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactMarkdown = _interopRequireDefault(require("react-markdown"));
+
+var _dateFns = require("date-fns");
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _axios = _interopRequireDefault(require("axios"));
+
+var _Note = _interopRequireDefault(require("../components/Note"));
+
+var _templateObject, _templateObject2, _templateObject3;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+//import { getAll } from '../services/animes.services';
+var StyledNote = _styledComponents.default.article(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 800px;\n    margin: 0 auto;\n    margin-bottom: 2em;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    padding-left: 1em;\n    padding-right: 1em;\n    border-radius: 10px;\n    background-color: #FEDEEF;\n\n"])));
+
+var MetaInfoTime = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 500px;\n    height: 50px;  \n    \n"])));
+
+var StyledMark = _styledComponents.default.mark(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    background-color: #FDFF70; \n    border-radius: 0.5em 0.3em;\n    \n"])));
+
+var MangaPage = function MangaPage(props) {
+  var _useState = (0, _react.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      manga = _useState2[0],
+      setManga = _useState2[1];
+
+  (0, _react.useEffect)(function () {
+    document.title = 'Manga';
+
+    var getManga =
+    /*#__PURE__*/
+    function () {
+      var _ref = _asyncToGenerator(
+      /*#__PURE__*/
+      regeneratorRuntime.mark(function _callee() {
+        var id, x, _ref2, _manga;
+
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return props.match.params.id;
+
+              case 3:
+                id = _context.sent;
+                _context.next = 6;
+                return props.match;
+
+              case 6:
+                x = _context.sent;
+                console.log(x.path);
+                console.log(id);
+                _context.next = 11;
+                return _axios.default.get("http://localhost:1234/mangas/".concat(id));
+
+              case 11:
+                _ref2 = _context.sent;
+                _manga = _ref2.data;
+                _context.next = 15;
+                return setManga(_manga);
+
+              case 15:
+                console.log(_manga);
+                _context.next = 21;
+                break;
+
+              case 18:
+                _context.prev = 18;
+                _context.t0 = _context["catch"](0);
+                console.error(_context.t0);
+
+              case 21:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 18]]);
+      }));
+
+      return function getManga() {
+        return _ref.apply(this, arguments);
+      };
+    }();
+
+    getManga();
+  }, []);
+  return _react.default.createElement(StyledNote, null, _react.default.createElement("h3", null, manga.title), _react.default.createElement("h4", null, _react.default.createElement("em", null, "Number "), _react.default.createElement(StyledMark, null, manga.number)), _react.default.createElement(_reactMarkdown.default, {
+    source: manga.content
+  }));
+};
+
+var _default = MangaPage;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-markdown":"../node_modules/react-markdown/lib/react-markdown.js","date-fns":"../node_modules/date-fns/esm/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","axios":"../node_modules/axios/index.js","../components/Note":"components/Note.js"}],"pages/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -66470,6 +66619,8 @@ var _mangas = _interopRequireDefault(require("./mangas"));
 
 var _singleanime = _interopRequireDefault(require("./singleanime"));
 
+var _singlemanga = _interopRequireDefault(require("./singlemanga"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Pages = function Pages() {
@@ -66488,12 +66639,15 @@ var Pages = function Pages() {
   }), _react.default.createElement(_reactRouterDom.Route, {
     path: "/animes/:id",
     component: _singleanime.default
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    path: "/mangas/:id",
+    component: _singlemanga.default
   })));
 };
 
 var _default = Pages;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/Layout":"components/Layout.js","./home":"pages/home.js","./animes":"pages/animes.js","./mangas":"pages/mangas.js","./singleanime":"pages/singleanime.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/Layout":"components/Layout.js","./home":"pages/home.js","./animes":"pages/animes.js","./mangas":"pages/mangas.js","./singleanime":"pages/singleanime.js","./singlemanga":"pages/singlemanga.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -66542,7 +66696,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64851" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57485" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

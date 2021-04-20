@@ -45,7 +45,12 @@ const Note = ({ note }) => {
         </MetaInfoTime> 
             
         <ReactMarkdown source={note.content} />
-        <Link to={`animes/${note._id}`}>{note._id}</Link>
+        {document.title == 'Animes' ? (
+            <Link to={`animes/${note._id}`}>animes</Link>
+        ):(
+            <Link to={`mangas/${note._id}`}>mangas</Link>
+        )}
+        
     </StyledNote>  
     )  
 }
