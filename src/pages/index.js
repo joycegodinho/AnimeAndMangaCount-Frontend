@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import Layout from '../components/Layout';
 
@@ -8,6 +8,8 @@ import Animes from './animes';
 import Mangas from './mangas';
 import AnimePage from './singleanime';
 import MangaPage from './singlemanga';
+import NewAnime from './newanime';
+import NewManga from './newmanga'
 
 
 const Pages = () => {
@@ -17,8 +19,11 @@ const Pages = () => {
                 <Route exact path="/" component={Home} /> 
                 <Route exact path="/animes" component={Animes} /> 
                 <Route exact path="/mangas" component={Mangas} /> 
-                <Route path="/animes/:id" component={AnimePage} /> 
-                <Route path="/mangas/:id" component={MangaPage} />
+                <Route exact path="/animes/:id" component={AnimePage} /> 
+                <Route exact path="/mangas/:id" component={MangaPage} />
+                <Route exact path="/anime/new" component={NewAnime} /> 
+                <Route exact path="/manga/new" component={NewManga} />
+                
             </Layout>
   
         </Router>

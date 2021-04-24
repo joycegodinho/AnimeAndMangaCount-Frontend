@@ -64,13 +64,13 @@ const Navigation = () => {
                 </li>
                 <li>
                     <StyledMark>
-                        <Link to='animes/new'>+ new Anime</Link>
+                        <Link to='anime/new'>+ new Anime</Link>
                     </StyledMark>
                     
                 </li>
                 <li>
                     <StyledMark>
-                        <Link to='mangas/new'>+ new Manga</Link>
+                        <Link to='manga/new'>+ new Manga</Link>
                     </StyledMark>
                     
                 </li>
