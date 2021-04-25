@@ -6,8 +6,8 @@ import Note from './Note';
 const Feed = ({ notes }) => {
     return(
         <div>
-            {notes.map((note, i) => (
-                <div key={i}>
+            {notes.map((note, id) => (
+                <div key={id}>
                     <Note note={note} />
                     
                 </div>

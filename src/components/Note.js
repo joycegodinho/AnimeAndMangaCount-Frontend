@@ -3,6 +3,8 @@ import ReactMarkdown from 'react-markdown';
 import { format } from 'date-fns';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import DeleteAnime from './DeleteAnime';
+import DeleteManga from './DeleteManga';
 
 const StyledNote = styled.article`
     max-width: 800px;
@@ -46,17 +48,23 @@ const Note = ({ note }) => {
             
         <ReactMarkdown source={note.content} />
         {document.title == 'Animes' ? (
-            <Link to={`animes/${note._id}`}>animes <br /> </Link> 
+            <Link to={`animes/${note._id}`}>anime <br /> </Link> 
             
         ):(
-            <Link to={`mangas/${note._id}`}>mangas <br /></Link>
+            <Link to={`mangas/${note._id}`}>manga <br /></Link>
         )}
         {document.title == "Animes" ? (
             <Link to={`anime/edit/${note._id}`}>edit anime </Link>
         ):(
             <Link to={`manga/edit/${note._id}`}>edit manga </Link>
         )}
-        
+        {document.title == "Animes" ? (
+            <DeleteAnime id={note._id} /> 
+        ):(
+            <DeleteManga id={note._id} /> 
+        )}
+
+           
     </StyledNote>  
     )  
 }
