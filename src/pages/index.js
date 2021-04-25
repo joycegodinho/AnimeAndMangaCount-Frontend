@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Layout from '../components/Layout';
 
 import Home from './home';
+import Wish from './wish'
 import Animes from './animes';
 import Mangas from './mangas';
 import AnimePage from './singleanime';
@@ -19,6 +20,7 @@ const Pages = () => {
         <Router> 
             <Layout>
                 <Route exact path="/" component={Home} /> 
+                <Route exact path="/wish" component={Wish} /> 
                 <Route exact path="/animes" component={Animes} /> 
                 <Route exact path="/mangas" component={Mangas} /> 
                 <Route exact path="/animes/:id" component={AnimePage} /> 

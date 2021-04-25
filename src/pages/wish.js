@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import FeedAll from '../components/FeedAll';
+import FeedWish from '../components/FeedWish';
 import axios from 'axios'
 
 
-const Home = () => {
+const Wish = () => {
     const [value, setValue] = useState([])
     useEffect(() => {
-        document.title = 'Home'
+        document.title = 'Wish List'
         const getAll = async () => {
             try {
-              const {data: value} = await axios.get('http://localhost:1234');  
+              const {data: value} = await axios.get('http://localhost:1234/wish');  
               setValue(value)
               console.log(value)
             } catch (error) {
@@ -21,9 +21,9 @@ const Home = () => {
     return (
         <div>
             <p>These is my home page</p>
-            <FeedAll notes={value} />
+            <FeedWish notes={value} />
         </div>
     );
 }
 
-export default Home;
+export default Wish;
