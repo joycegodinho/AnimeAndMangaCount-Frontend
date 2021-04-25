@@ -10,6 +10,8 @@ import AnimePage from './singleanime';
 import MangaPage from './singlemanga';
 import NewAnime from './newanime';
 import NewManga from './newmanga'
+import EditAnime from './editanime';
+import EditManga from './editmanga'
 
 
 const Pages = () => {
@@ -21,6 +23,8 @@ const Pages = () => {
                 <Route exact path="/mangas" component={Mangas} /> 
                 <Route exact path="/animes/:id" component={AnimePage} /> 
                 <Route exact path="/mangas/:id" component={MangaPage} />
+                <Route exact path="/manga/edit/:id" component={EditManga} />
+                <Route exact path="/anime/edit/:id" component={EditAnime} />
                 <Route exact path="/anime/new" component={NewAnime} /> 
                 <Route exact path="/manga/new" component={NewManga} />
                 

@@ -46,9 +46,15 @@ const Note = ({ note }) => {
             
         <ReactMarkdown source={note.content} />
         {document.title == 'Animes' ? (
-            <Link to={`animes/${note._id}`}>animes</Link>
+            <Link to={`animes/${note._id}`}>animes <br /> </Link> 
+            
         ):(
-            <Link to={`mangas/${note._id}`}>mangas</Link>
+            <Link to={`mangas/${note._id}`}>mangas <br /></Link>
+        )}
+        {document.title == "Animes" ? (
+            <Link to={`anime/edit/${note._id}`}>edit anime </Link>
+        ):(
+            <Link to={`manga/edit/${note._id}`}>edit manga </Link>
         )}
         
     </StyledNote>  

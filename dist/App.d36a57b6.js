@@ -64529,9 +64529,13 @@ var Note = function Note(_ref) {
     source: note.content
   }), document.title == 'Animes' ? _react.default.createElement(_reactRouterDom.Link, {
     to: "animes/".concat(note._id)
-  }, "animes") : _react.default.createElement(_reactRouterDom.Link, {
+  }, "animes ", _react.default.createElement("br", null), " ") : _react.default.createElement(_reactRouterDom.Link, {
     to: "mangas/".concat(note._id)
-  }, "mangas"));
+  }, "mangas ", _react.default.createElement("br", null)), document.title == "Animes" ? _react.default.createElement(_reactRouterDom.Link, {
+    to: "anime/edit/".concat(note._id)
+  }, "edit anime ") : _react.default.createElement(_reactRouterDom.Link, {
+    to: "manga/edit/".concat(note._id)
+  }, "edit manga "));
 };
 
 var _default = Note;
@@ -68930,6 +68934,398 @@ var New = function New(props) {
 var _default = (0, _reactRouterDom.withRouter)(New);
 
 exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/Button":"components/Button.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","axios":"../node_modules/axios/index.js","qs":"../node_modules/qs/lib/index.js"}],"pages/editanime.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _Button = _interopRequireDefault(require("../components/Button"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _axios = _interopRequireDefault(require("axios"));
+
+var _qs = _interopRequireDefault(require("qs"));
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+// styled components
+var Wrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 100%\n"])));
+
+var Form = _styledComponents.default.form(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    height: 100%\n"])));
+
+var TextAreaTitle = _styledComponents.default.textarea(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 40%;\n    height: 20%;\n    margin-bottom: 15px;\n"])));
+
+var TextAreaNumber = _styledComponents.default.textarea(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 40%;\n    height: 20%;\n    margin-bottom: 15px;\n"])));
+
+var TextAreaContent = _styledComponents.default.textarea(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    width: 60%;\n    height: 60%;\n    margin-bottom: 15px;\n"]))); // Axios request 
+
+
+var editAnime =
+/*#__PURE__*/
+function () {
+  var _ref = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee(id, title, number, content) {
+    var _ref2, editanime;
+
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _context.next = 3;
+            return _axios.default.put("http://localhost:1234/anime/edit/".concat(id), _qs.default.stringify({
+              title: title,
+              number: number,
+              content: content
+            }), {
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+              }
+            });
+
+          case 3:
+            _ref2 = _context.sent;
+            editanime = _ref2.data;
+            _context.next = 11;
+            break;
+
+          case 7:
+            _context.prev = 7;
+            _context.t0 = _context["catch"](0);
+            console.error(_context.t0);
+            console.log(JSON.stringify(_context.t0.response));
+
+          case 11:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, null, [[0, 7]]);
+  }));
+
+  return function editAnime(_x, _x2, _x3, _x4) {
+    return _ref.apply(this, arguments);
+  };
+}(); // Form Component
+
+
+var Edit = function Edit(props) {
+  (0, _react.useEffect)(function () {
+    document.title = "Edit Anime";
+  });
+
+  var _useState = (0, _react.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      value = _useState2[0],
+      setValue = _useState2[1];
+
+  var onChange = function onChange(event) {
+    setValue(_objectSpread(_objectSpread({}, value), {}, _defineProperty({}, event.target.name, event.target.value)));
+  };
+
+  var EditAnime =
+  /*#__PURE__*/
+  function () {
+    var _ref3 = _asyncToGenerator(
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee2(e) {
+      var id;
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return props.match.params.id;
+
+            case 2:
+              id = _context2.sent;
+              console.log(id);
+              e.preventDefault();
+              _context2.next = 7;
+              return editAnime(id, value.title, value.number, value.content);
+
+            case 7:
+              props.history.push('/animes');
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function EditAnime(_x5) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
+  return _react.default.createElement(Wrapper, null, _react.default.createElement(Form, null, _react.default.createElement("div", null, _react.default.createElement(TextAreaTitle, {
+    required: true,
+    type: "text",
+    id: "title",
+    name: "title",
+    placeholder: "title",
+    value: value.title,
+    onChange: onChange
+  })), _react.default.createElement("div", null, _react.default.createElement(TextAreaNumber, {
+    type: "text",
+    id: "number",
+    name: "number",
+    placeholder: "number",
+    value: value.number,
+    onChange: onChange
+  })), _react.default.createElement(TextAreaContent, {
+    type: "text",
+    id: "content",
+    name: "content",
+    placeholder: "content",
+    value: value.content,
+    onChange: onChange
+  }), _react.default.createElement(_Button.default, {
+    type: "submit",
+    onClick: EditAnime
+  }, "Add")));
+};
+
+var _default = (0, _reactRouterDom.withRouter)(Edit);
+
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/Button":"components/Button.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","axios":"../node_modules/axios/index.js","qs":"../node_modules/qs/lib/index.js"}],"pages/editmanga.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _Button = _interopRequireDefault(require("../components/Button"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _axios = _interopRequireDefault(require("axios"));
+
+var _qs = _interopRequireDefault(require("qs"));
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+// styled components
+var Wrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 100%\n"])));
+
+var Form = _styledComponents.default.form(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    height: 100%\n"])));
+
+var TextAreaTitle = _styledComponents.default.textarea(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 40%;\n    height: 20%;\n    margin-bottom: 15px;\n"])));
+
+var TextAreaNumber = _styledComponents.default.textarea(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 40%;\n    height: 20%;\n    margin-bottom: 15px;\n"])));
+
+var TextAreaContent = _styledComponents.default.textarea(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    width: 60%;\n    height: 60%;\n    margin-bottom: 15px;\n"]))); // Axios request 
+
+
+var editManga =
+/*#__PURE__*/
+function () {
+  var _ref = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee(id, title, number, content) {
+    var _ref2, editmanga;
+
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _context.next = 3;
+            return _axios.default.put("http://localhost:1234/manga/edit/".concat(id), _qs.default.stringify({
+              title: title,
+              number: number,
+              content: content
+            }), {
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+              }
+            });
+
+          case 3:
+            _ref2 = _context.sent;
+            editmanga = _ref2.data;
+            _context.next = 11;
+            break;
+
+          case 7:
+            _context.prev = 7;
+            _context.t0 = _context["catch"](0);
+            console.error(_context.t0);
+            console.log(JSON.stringify(_context.t0.response));
+
+          case 11:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, null, [[0, 7]]);
+  }));
+
+  return function editManga(_x, _x2, _x3, _x4) {
+    return _ref.apply(this, arguments);
+  };
+}(); // Form Component
+
+
+var Edit = function Edit(props) {
+  (0, _react.useEffect)(function () {
+    document.title = "Edit Manga";
+  });
+
+  var _useState = (0, _react.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      value = _useState2[0],
+      setValue = _useState2[1];
+
+  var onChange = function onChange(event) {
+    setValue(_objectSpread(_objectSpread({}, value), {}, _defineProperty({}, event.target.name, event.target.value)));
+  };
+
+  var EditManga =
+  /*#__PURE__*/
+  function () {
+    var _ref3 = _asyncToGenerator(
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee2(e) {
+      var id;
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return props.match.params.id;
+
+            case 2:
+              id = _context2.sent;
+              console.log(id);
+              e.preventDefault();
+              _context2.next = 7;
+              return editManga(id, value.title, value.number, value.content);
+
+            case 7:
+              props.history.push('/mangas');
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function EditManga(_x5) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
+  return _react.default.createElement(Wrapper, null, _react.default.createElement(Form, null, _react.default.createElement("div", null, _react.default.createElement(TextAreaTitle, {
+    required: true,
+    type: "text",
+    id: "title",
+    name: "title",
+    placeholder: "title",
+    value: value.title,
+    onChange: onChange
+  })), _react.default.createElement("div", null, _react.default.createElement(TextAreaNumber, {
+    type: "text",
+    id: "number",
+    name: "number",
+    placeholder: "number",
+    value: value.number,
+    onChange: onChange
+  })), _react.default.createElement(TextAreaContent, {
+    type: "text",
+    id: "content",
+    name: "content",
+    placeholder: "content",
+    value: value.content,
+    onChange: onChange
+  }), _react.default.createElement(_Button.default, {
+    type: "submit",
+    onClick: EditManga
+  }, "Add")));
+};
+
+var _default = (0, _reactRouterDom.withRouter)(Edit);
+
+exports.default = _default;
 },{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/Button":"components/Button.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","axios":"../node_modules/axios/index.js","qs":"../node_modules/qs/lib/index.js"}],"pages/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -68958,6 +69354,10 @@ var _newanime = _interopRequireDefault(require("./newanime"));
 
 var _newmanga = _interopRequireDefault(require("./newmanga"));
 
+var _editanime = _interopRequireDefault(require("./editanime"));
+
+var _editmanga = _interopRequireDefault(require("./editmanga"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Pages = function Pages() {
@@ -68983,6 +69383,14 @@ var Pages = function Pages() {
     component: _singlemanga.default
   }), _react.default.createElement(_reactRouterDom.Route, {
     exact: true,
+    path: "/manga/edit/:id",
+    component: _editmanga.default
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
+    path: "/anime/edit/:id",
+    component: _editanime.default
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
     path: "/anime/new",
     component: _newanime.default
   }), _react.default.createElement(_reactRouterDom.Route, {
@@ -68994,7 +69402,7 @@ var Pages = function Pages() {
 
 var _default = Pages;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/Layout":"components/Layout.js","./home":"pages/home.js","./animes":"pages/animes.js","./mangas":"pages/mangas.js","./singleanime":"pages/singleanime.js","./singlemanga":"pages/singlemanga.js","./newanime":"pages/newanime.js","./newmanga":"pages/newmanga.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/Layout":"components/Layout.js","./home":"pages/home.js","./animes":"pages/animes.js","./mangas":"pages/mangas.js","./singleanime":"pages/singleanime.js","./singlemanga":"pages/singlemanga.js","./newanime":"pages/newanime.js","./newmanga":"pages/newmanga.js","./editanime":"pages/editanime.js","./editmanga":"pages/editmanga.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -69043,7 +69451,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51434" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52142" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
