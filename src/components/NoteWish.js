@@ -2,6 +2,8 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import styled from 'styled-components';
 
+import DeleteWish from './DeleteWish'
+
 
 const StyledNote = styled.article`
     max-width: 800px;
@@ -39,6 +41,7 @@ const NoteWish = ({ note }) => {
                 </StyledMark>
         </h4>
         <ReactMarkdown source={note.content} />
+        <DeleteWish id={note._id} />
     
     </StyledNote>  
     )  

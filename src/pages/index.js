@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Layout from '../components/Layout';
 
@@ -10,9 +10,10 @@ import Mangas from './mangas';
 import AnimePage from './singleanime';
 import MangaPage from './singlemanga';
 import NewAnime from './newanime';
-import NewManga from './newmanga'
+import NewManga from './newmanga';
+import NewWish from './newwish';
 import EditAnime from './editanime';
-import EditManga from './editmanga'
+import EditManga from './editmanga';
 
 
 const Pages = () => {
@@ -21,6 +22,7 @@ const Pages = () => {
             <Layout>
                 <Route exact path="/" component={Home} /> 
                 <Route exact path="/wish" component={Wish} /> 
+                <Route exact path="/wish/new" component={NewWish} /> 
                 <Route exact path="/animes" component={Animes} /> 
                 <Route exact path="/mangas" component={Mangas} /> 
                 <Route exact path="/animes/:id" component={AnimePage} /> 

@@ -36581,11 +36581,15 @@ var Navigation = function Navigation() {
     to: "/animes"
   }, "Animes")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
     to: "/mangas"
-  }, "Mangas")), _react.default.createElement("li", null, _react.default.createElement(StyledMark, null, _react.default.createElement(_reactRouterDom.Link, {
+  }, "Mangas")), _react.default.createElement("li", null, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/wish"
+  }, "Wish List")), _react.default.createElement("li", null, _react.default.createElement(StyledMark, null, _react.default.createElement(_reactRouterDom.Link, {
     to: "anime/new"
   }, "+ new Anime"))), _react.default.createElement("li", null, _react.default.createElement(StyledMark, null, _react.default.createElement(_reactRouterDom.Link, {
     to: "manga/new"
-  }, "+ new Manga")))));
+  }, "+ new Manga"))), _react.default.createElement("li", null, _react.default.createElement(StyledMark, null, _react.default.createElement(_reactRouterDom.Link, {
+    to: "wish/new"
+  }, "+ new Wish")))));
 };
 
 var _default = Navigation;
@@ -66197,7 +66201,110 @@ var Home = function Home() {
 
 var _default = Home;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","../components/FeedAll":"components/FeedAll.js","axios":"../node_modules/axios/index.js"}],"components/NoteWish.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../components/FeedAll":"components/FeedAll.js","axios":"../node_modules/axios/index.js"}],"components/DeleteWish.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _axios = _interopRequireDefault(require("axios"));
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var deleteWish =
+/*#__PURE__*/
+function () {
+  var _ref = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee(id) {
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _context.next = 3;
+            return _axios.default.delete("http://localhost:1234/wish/".concat(id));
+
+          case 3:
+            _context.next = 9;
+            break;
+
+          case 5:
+            _context.prev = 5;
+            _context.t0 = _context["catch"](0);
+            console.error(_context.t0);
+            console.log(JSON.stringify(_context.t0.response));
+
+          case 9:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, null, [[0, 5]]);
+  }));
+
+  return function deleteWish(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+var Delete = function Delete(props) {
+  var DeleteWish =
+  /*#__PURE__*/
+  function () {
+    var _ref2 = _asyncToGenerator(
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee2(e) {
+      var id;
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return props.id;
+
+            case 2:
+              id = _context2.sent;
+              console.log(id);
+              e.preventDefault();
+              _context2.next = 7;
+              return deleteWish(id);
+
+            case 7:
+              props.history.push('/');
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function DeleteWish(_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  return _react.default.createElement("button", {
+    onClick: DeleteWish
+  }, "Delete Wish");
+};
+
+var _default = (0, _reactRouterDom.withRouter)(Delete);
+
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"components/NoteWish.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -66210,6 +66317,8 @@ var _react = _interopRequireDefault(require("react"));
 var _reactMarkdown = _interopRequireDefault(require("react-markdown"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _DeleteWish = _interopRequireDefault(require("./DeleteWish"));
 
 var _templateObject, _templateObject2, _templateObject3;
 
@@ -66227,12 +66336,14 @@ var NoteWish = function NoteWish(_ref) {
   var note = _ref.note;
   return _react.default.createElement(StyledNote, null, _react.default.createElement("h3", null, note.title), _react.default.createElement("h4", null, _react.default.createElement("em", null, "Type "), _react.default.createElement(StyledMark, null, note.type)), _react.default.createElement(_reactMarkdown.default, {
     source: note.content
+  }), _react.default.createElement(_DeleteWish.default, {
+    id: note._id
   }));
 };
 
 var _default = NoteWish;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-markdown":"../node_modules/react-markdown/lib/react-markdown.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js"}],"components/FeedWish.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-markdown":"../node_modules/react-markdown/lib/react-markdown.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","./DeleteWish":"components/DeleteWish.js"}],"components/FeedWish.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -69441,6 +69552,200 @@ var New = function New(props) {
 var _default = (0, _reactRouterDom.withRouter)(New);
 
 exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/Button":"components/Button.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","axios":"../node_modules/axios/index.js","qs":"../node_modules/qs/lib/index.js"}],"pages/newwish.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _Button = _interopRequireDefault(require("../components/Button"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _axios = _interopRequireDefault(require("axios"));
+
+var _qs = _interopRequireDefault(require("qs"));
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+// styled components
+var Wrapper = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 100%\n"])));
+
+var Form = _styledComponents.default.form(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    height: 100%\n"])));
+
+var TextAreaTitle = _styledComponents.default.textarea(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 40%;\n    height: 20%;\n    margin-bottom: 15px;\n"])));
+
+var TextAreaNumber = _styledComponents.default.textarea(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 40%;\n    height: 20%;\n    margin-bottom: 15px;\n"])));
+
+var TextAreaContent = _styledComponents.default.textarea(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    width: 60%;\n    height: 60%;\n    margin-bottom: 15px;\n"])));
+
+var Status = _styledComponents.default.div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    margin-bottom: 15px;\n"])));
+
+var Select = _styledComponents.default.select(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    border-radius: 0.3em;\n"]))); // Axios request 
+
+
+var newWish =
+/*#__PURE__*/
+function () {
+  var _ref = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee(title, type, content) {
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.prev = 0;
+            _context.next = 3;
+            return _axios.default.post("http://localhost:1234/wish/new", _qs.default.stringify({
+              title: title,
+              type: type,
+              content: content
+            }), {
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+              }
+            });
+
+          case 3:
+            _context.next = 9;
+            break;
+
+          case 5:
+            _context.prev = 5;
+            _context.t0 = _context["catch"](0);
+            console.error(_context.t0);
+            console.log(JSON.stringify(_context.t0.response));
+
+          case 9:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, null, [[0, 5]]);
+  }));
+
+  return function newWish(_x, _x2, _x3) {
+    return _ref.apply(this, arguments);
+  };
+}(); // Form Component
+
+
+var New = function New(props) {
+  (0, _react.useEffect)(function () {
+    document.title = "New Wish";
+  });
+
+  var _useState = (0, _react.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      value = _useState2[0],
+      setValue = _useState2[1];
+
+  var onChange = function onChange(event) {
+    setValue(_objectSpread(_objectSpread({}, value), {}, _defineProperty({}, event.target.name, event.target.value)));
+  };
+
+  var NewWish =
+  /*#__PURE__*/
+  function () {
+    var _ref2 = _asyncToGenerator(
+    /*#__PURE__*/
+    regeneratorRuntime.mark(function _callee2(e) {
+      return regeneratorRuntime.wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              e.preventDefault();
+              _context2.next = 3;
+              return newWish(value.title, value.type, value.content);
+
+            case 3:
+              props.history.push('/wish');
+
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function NewWish(_x4) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  return _react.default.createElement(Wrapper, null, _react.default.createElement(Form, null, _react.default.createElement("div", null, _react.default.createElement(TextAreaTitle, {
+    required: true,
+    type: "text",
+    id: "title",
+    name: "title",
+    placeholder: "title",
+    value: value.title,
+    onChange: onChange
+  })), _react.default.createElement("div", null, _react.default.createElement(TextAreaContent, {
+    type: "text",
+    id: "content",
+    name: "content",
+    placeholder: "content",
+    value: value.content,
+    onChange: onChange
+  })), _react.default.createElement(Status, null, _react.default.createElement("label", null, "Type "), _react.default.createElement(Select, {
+    name: "type",
+    value: value.type,
+    placeholder: "select",
+    id: "type",
+    onChange: onChange
+  }, _react.default.createElement("option", {
+    value: "null"
+  }, "None"), _react.default.createElement("option", {
+    value: "Manga"
+  }, "Manga"), _react.default.createElement("option", {
+    value: "Anime"
+  }, "Anime"))), _react.default.createElement(_Button.default, {
+    type: "submit",
+    onClick: NewWish
+  }, "Add")));
+};
+
+var _default = (0, _reactRouterDom.withRouter)(New);
+
+exports.default = _default;
 },{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/Button":"components/Button.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","axios":"../node_modules/axios/index.js","qs":"../node_modules/qs/lib/index.js"}],"pages/editanime.js":[function(require,module,exports) {
 "use strict";
 
@@ -69863,6 +70168,8 @@ var _newanime = _interopRequireDefault(require("./newanime"));
 
 var _newmanga = _interopRequireDefault(require("./newmanga"));
 
+var _newwish = _interopRequireDefault(require("./newwish"));
+
 var _editanime = _interopRequireDefault(require("./editanime"));
 
 var _editmanga = _interopRequireDefault(require("./editmanga"));
@@ -69878,6 +70185,10 @@ var Pages = function Pages() {
     exact: true,
     path: "/wish",
     component: _wish.default
+  }), _react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
+    path: "/wish/new",
+    component: _newwish.default
   }), _react.default.createElement(_reactRouterDom.Route, {
     exact: true,
     path: "/animes",
@@ -69915,7 +70226,7 @@ var Pages = function Pages() {
 
 var _default = Pages;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/Layout":"components/Layout.js","./home":"pages/home.js","./wish":"pages/wish.js","./animes":"pages/animes.js","./mangas":"pages/mangas.js","./singleanime":"pages/singleanime.js","./singlemanga":"pages/singlemanga.js","./newanime":"pages/newanime.js","./newmanga":"pages/newmanga.js","./editanime":"pages/editanime.js","./editmanga":"pages/editmanga.js"}],"App.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","../components/Layout":"components/Layout.js","./home":"pages/home.js","./wish":"pages/wish.js","./animes":"pages/animes.js","./mangas":"pages/mangas.js","./singleanime":"pages/singleanime.js","./singlemanga":"pages/singlemanga.js","./newanime":"pages/newanime.js","./newmanga":"pages/newmanga.js","./newwish":"pages/newwish.js","./editanime":"pages/editanime.js","./editmanga":"pages/editmanga.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -69964,7 +70275,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60469" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54724" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

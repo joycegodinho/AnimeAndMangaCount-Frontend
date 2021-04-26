@@ -63,6 +63,9 @@ const Navigation = () => {
                     <Link to="/mangas">Mangas</Link>
                 </li>
                 <li>
+                    <Link to="/wish">Wish List</Link>
+                </li>
+                <li>
                     <StyledMark>
                         <Link to='anime/new'>+ new Anime</Link>
                     </StyledMark>
@@ -71,6 +74,12 @@ const Navigation = () => {
                 <li>
                     <StyledMark>
                         <Link to='manga/new'>+ new Manga</Link>
+                    </StyledMark>
+                    
+                </li>
+                <li>
+                    <StyledMark>
+                        <Link to='wish/new'>+ new Wish</Link>
                     </StyledMark>
                     
                 </li>
