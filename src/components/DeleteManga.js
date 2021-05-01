@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
+import { BiXCircle } from "react-icons/bi";
 
+import ButtonAsLink from './ButtonAsLink';
 const deleteManga = async (id) => {
         
     try {
@@ -26,7 +28,7 @@ const Delete = props => {
         props.history.push('/')
     }
 
-    return <button onClick={DeleteManga}>Delete Manga</button>
+    return <ButtonAsLink onClick={DeleteManga}><BiXCircle size="1.5em" /></ButtonAsLink>
 }
 
 export default withRouter(Delete);

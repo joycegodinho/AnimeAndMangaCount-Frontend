@@ -14,35 +14,63 @@ const StyledNote = styled.article`
     padding-left: 1em;
     padding-right: 1em;
     border-radius: 10px;
-    background-color: #FEDEEF;
+    background-color: #e9a8a1;
 
 `;
 
-const MetaInfoTime = styled.div`
+const MetaData = styled.div`
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    
+`;
+const MetaInfo = styled.div`
+
+    width: 500px;
+    height: 100px;
+  
+`;
+
+const LinkOptions = styled.div`
+    width: 500px;
+    height: 50px; 
+    text-align: right;   
+    
+`
+
+
+const MetaInfoType = styled.div`
     width: 500px;
     height: 50px;  
     
 `;
 
 const StyledMark = styled.mark`
-    background-color: #FDFF70; 
+    background-color: #e9635e; 
     border-radius: 0.5em 0.3em;
+    color: #6b0003;
     
 `;
 
 const NoteWish = ({ note }) => {
     return(
     <StyledNote>
-        <h3>{note.title}</h3>
-        <h4>
-            <em>Type </em>
-                <StyledMark>
-                    {note.type}
-                </StyledMark>
-        </h4>
+        <MetaData>
+            <h3>{note.title}</h3>
+            <h4>
+                <em>Type </em>
+                    <StyledMark>
+                        {note.type}
+                    </StyledMark>
+            </h4>
+
+            <DeleteWish id={note._id} />       
+        
+        </MetaData>
+
         <ReactMarkdown source={note.content} />
-        <DeleteWish id={note._id} />
-    
     </StyledNote>  
     )  
 }

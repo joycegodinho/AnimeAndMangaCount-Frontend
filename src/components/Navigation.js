@@ -4,7 +4,8 @@ import styled from 'styled-components';
 
 const Nav = styled.nav`
     padding: 2em;
-    background: #FFFAFD;
+    background-color: #f4d4d3;
+
 
     @media (max-width: 700px) {
         padding-top: 64px;
@@ -29,20 +30,20 @@ const NavList = styled.ul`
         text-decoration: none;
         font-weight: bold;
         font-size: 1.1em;
-        color: #000000;
+        color: #6b0003;
     }
 
     a:visited {
-        color: #000000;
+        color: #6b0003;
     }
 
     a:hover,
     a:focus {
-        color: #0077cc;
+        color: #e9635e;
     }
 `;
 const StyledMark = styled.mark`
-    background-color: #BFD2FF; 
+    background-color: #e9a8a1; 
     border-radius: 0.2em 0.2em;
     
 `;

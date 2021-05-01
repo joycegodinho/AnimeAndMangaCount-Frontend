@@ -8,8 +8,8 @@ const HeaderBar = styled.header`
     height: 64px
     position: fixed;
     align-items: center;
-    background-color: #FFFAFD;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+    background-color: #f4d4d3;
+    box-shadow: 0 0 1.5px 0 rgba(0, 0, 0, 0.25);
     z-index: 1;
 
 `;
@@ -19,14 +19,14 @@ const LogoText = styled.h1`
     margin-top: 40px;
     padding: 0;
     display: inline;
-    color: #000000;
+    color: #6b0003;
 `;
 
 
 const Header = () => {
     return (
         <HeaderBar>
-            <LogoText>Anime and Manga count</LogoText>
+            <LogoText>Anime and Manga Record</LogoText>
         </HeaderBar>
     )
 }

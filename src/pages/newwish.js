@@ -18,23 +18,19 @@ const Form = styled.form`
 const TextAreaTitle = styled.textarea`
     width: 40%;
     height: 20%;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+    margin-top: 50px
 `;
 
-const TextAreaNumber = styled.textarea`
-    width: 40%;
-    height: 20%;
-    margin-bottom: 15px;
-`;
 
 const TextAreaContent = styled.textarea`
     width: 60%;
-    height: 60%;
-    margin-bottom: 15px;
+    height: 100px;
+    margin-bottom: 30px;
 `;
 
 const Status = styled.div`
-    margin-bottom: 15px;
+    margin-bottom: 35px;
 `
 
 const Select = styled.select`

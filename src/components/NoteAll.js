@@ -13,7 +13,7 @@ const StyledNote = styled.article`
     padding-left: 1em;
     padding-right: 1em;
     border-radius: 10px;
-    background-color: #FEDEEF;
+    background-color: #e9a8a1;
 
 `;
 
@@ -24,8 +24,9 @@ const MetaInfoTime = styled.div`
 `;
 
 const StyledMark = styled.mark`
-    background-color: #FDFF70; 
+    background-color: #e9635e; 
     border-radius: 0.5em 0.3em;
+    color: #6b0003;
     
 `;
 

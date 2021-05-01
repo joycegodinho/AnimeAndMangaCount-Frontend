@@ -19,6 +19,7 @@ const TextAreaTitle = styled.textarea`
     width: 40%;
     height: 20%;
     margin-bottom: 15px;
+    margin-top: 40px
 `;
 
 const TextAreaNumber = styled.textarea`
@@ -29,7 +30,7 @@ const TextAreaNumber = styled.textarea`
 
 const TextAreaContent = styled.textarea`
     width: 60%;
-    height: 60%;
+    height: 40%;
     margin-bottom: 15px;
 `;
 

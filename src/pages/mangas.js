@@ -20,8 +20,6 @@ const Mangas = () => {
     },[]);
     return (
         <div>
-            <h1>Manga Count</h1>
-            <p>These are my mangas</p>
             <Feed notes={mangas} />
         </div>
     );

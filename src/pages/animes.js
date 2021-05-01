@@ -24,11 +24,7 @@ const Animes =  () => {
 
     return (
         <div>
-            <h1>Anime Count</h1>
-            <p>These are my animes</p>
             <Feed notes={animes} />
-
- 
         </div>
     );
 }

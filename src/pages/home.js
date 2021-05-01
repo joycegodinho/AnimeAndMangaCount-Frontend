@@ -20,7 +20,6 @@ const Home = () => {
     },[]);
     return (
         <div>
-            <p>These is my home page</p>
             <FeedAll notes={value} />
         </div>
     );

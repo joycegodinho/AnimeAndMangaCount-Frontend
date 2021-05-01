@@ -20,7 +20,6 @@ const Wish = () => {
     },[]);
     return (
         <div>
-            <p>These is my home page</p>
             <FeedWish notes={value} />
         </div>
     );

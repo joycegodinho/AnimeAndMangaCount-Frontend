@@ -9,16 +9,16 @@ const Button = styled.button`
     border: none;
     border-radius: 5px;
     font-size: 20px;
-    color: #7B7D7D;
-    background-color: #D1DEFE ;
+    color: #6b0003;
+    background-color: #e9a8a1;
     cursor: pointer;
 
     :hover {
-        background-color: #EAEDED;
+        background-color: #e9635e;
     }
 
     :active {
-        background-color: #E5E8E8;
+        background-color: #e9635e;
     }
 `;
 

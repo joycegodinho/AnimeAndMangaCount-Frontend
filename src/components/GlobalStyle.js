@@ -12,22 +12,25 @@ export default createGlobalStyle `
     html {
         height: 100%;
         margin: 0 px;
+        color: #6b0003;
     }
 
     body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
         background-color: #FFFFFF;
         line-height: 1.4;
+        color: #6b0003;
+        background-color: #f4d4d3;
     }
 
     a:link, 
     a:visited {
-        color: #0077cc;
+        color: #ca1414;
     }
 
     a:hover, 
     a:focus {
-        color: #004499
+        color: #e9635e;
     }
 
     code,
