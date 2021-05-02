@@ -5,41 +5,73 @@ import styled from 'styled-components';
 
 
 const StyledNote = styled.article`
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
     margin-bottom: 2em;
-    padding-top: 1em;
+    padding-top: 0.5em;
     padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
     border-radius: 10px;
-    background-color: #e9a8a1;
+    background-color: #f4d4d3;
 
 `;
+const MetaData = styled.div`
 
-const MetaInfoTime = styled.div`
-    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    
+`;
+
+const MetaInfo = styled.div`
+    width: 300px;
     height: 50px;  
     
 `;
 
+const MetaInfoNumber = styled.div`
+    width: 300px;
+    height: 50px;  
+    margin-top: 0px; 
+    text-align: right; 
+    
+`;
+
 const StyledMark = styled.mark`
-    background-color: #e9635e; 
+    background-color: #e9a8a1; 
     border-radius: 0.5em 0.3em;
     color: #6b0003;
     
 `;
 
+const StyledTitle = styled.h3`
+    color: #ca1414;
+`
+const StyledInfo = styled.em`
+    color: #ca1414;
+`
+
 const NoteAll = ({ note }) => {
     return(
     <StyledNote>
-        <h3>{note.title}</h3>
-        <h4>
-            <em>Number </em>
-                <StyledMark>
-                    {note.number}
-                </StyledMark>
-        </h4>
+        <MetaData>
+            <MetaInfo>
+                <StyledTitle>{note.title}</StyledTitle>            
+            </MetaInfo>
+            <MetaInfoNumber>
+                <h4>
+                    <StyledInfo>Number </StyledInfo>
+                        <StyledMark>
+                            {note.number}
+                        </StyledMark>
+                </h4>           
+            </MetaInfoNumber>
+        
+        </MetaData>
+
+
         <ReactMarkdown source={note.content} />
     
     </StyledNote>  

@@ -32682,7 +32682,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var _default = (0, _styledComponents.createGlobalStyle)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    ", "\n\n    *, *:before, *:after {\n        box-sizing: border-box;\n    }\n\n    body,\n    html {\n        height: 100%;\n        margin: 0 px;\n        color: #6b0003;\n    }\n\n    body {\n        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;\n        background-color: #FFFFFF;\n        line-height: 1.4;\n        color: #6b0003;\n        background-color: #f4d4d3;\n    }\n\n    a:link, \n    a:visited {\n        color: #ca1414;\n    }\n\n    a:hover, \n    a:focus {\n        color: #e9635e;\n    }\n\n    code,\n    pre {\n        max-width: 100%;\n    }\n"])), _normalize.default);
+var _default = (0, _styledComponents.createGlobalStyle)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    ", "\n\n    *, *:before, *:after {\n        box-sizing: border-box;\n    }\n\n    body,\n    html {\n        height: 100%;\n        margin: 0 px;\n        color: #6b0003;\n    }\n\n    body {\n        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;\n        line-height: 1.4;\n        color: #6b0003;\n        background-color: #FEF8FA;\n    }\n\n    a:link, \n    a:visited {\n        color: #ca1414;\n    }\n\n    a:hover, \n    a:focus {\n        color: #e9635e;\n    }\n\n    code,\n    pre {\n        max-width: 100%;\n    }\n"])), _normalize.default);
 
 exports.default = _default;
 },{"styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","normalize.css":"../node_modules/normalize.css/normalize.css"}],"../node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":[function(require,module,exports) {
@@ -36538,9 +36538,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var HeaderBar = _styledComponents.default.header(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    padding: 1.5em 2em;\n    diplay: flex;\n    height: 64px\n    position: fixed;\n    align-items: center;\n    background-color: #f4d4d3;\n    box-shadow: 0 0 1.5px 0 rgba(0, 0, 0, 0.25);\n    z-index: 1;\n\n"])));
+var HeaderBar = _styledComponents.default.header(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    width: 100%;\n    padding: 1.5em 2em;\n    diplay: flex;\n    height: 64px\n    position: fixed;\n    align-items: center;\n    background-color: #FEF8FA;\n    box-shadow: 0 0 1.5px 0 rgba(0, 0, 0, 0.25);\n    z-index: 1;\n\n"])));
 
-var LogoText = _styledComponents.default.h1(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    margin: 150px;\n    margin-top: 40px;\n    padding: 0;\n    display: inline;\n    color: #6b0003;\n"])));
+var LogoText = _styledComponents.default.h1(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    margin: 220px;\n    margin-top: 40px;\n    padding: 0;\n    display: inline;\n    color: #ca1414;\n"])));
 
 var Header = function Header() {
   return _react.default.createElement(HeaderBar, null, _react.default.createElement(LogoText, null, "Anime and Manga Record"));
@@ -36568,9 +36568,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Nav = _styledComponents.default.nav(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    padding: 2em;\n    background-color: #f4d4d3;\n\n\n    @media (max-width: 700px) {\n        padding-top: 64px;\n    }\n\n    @media (min-width: 700px) {\n        position: fixed;\n        width: 180px;\n        height: calc(100% - 64px);\n    }\n"])));
+var Nav = _styledComponents.default.nav(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    padding: 4em;\n    background-color: #FEF8FA;\n\n\n    @media (max-width: 700px) {\n        padding-top: 64px;\n    }\n\n    @media (min-width: 700px) {\n        position: fixed;\n        width: 250px;\n        height: calc(100% - 64px);\n    }\n"])));
 
-var NavList = _styledComponents.default.ul(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    margin: 0px;\n    padding: 0px;\n    list-style: none;\n    line-height: 2;\n\n\n\n    a {\n        text-decoration: none;\n        font-weight: bold;\n        font-size: 1.1em;\n        color: #6b0003;\n    }\n\n    a:visited {\n        color: #6b0003;\n    }\n\n    a:hover,\n    a:focus {\n        color: #e9635e;\n    }\n"])));
+var NavList = _styledComponents.default.ul(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    margin: 0px;\n    padding: 0px;\n    list-style: none;\n    line-height: 2;\n\n\n\n    a {\n        text-decoration: none;\n        font-weight: bold;\n        font-size: 1.18em;\n        color: #6b0003;\n    }\n\n    a:visited {\n        color: #6b0003;\n    }\n\n    a:hover,\n    a:focus {\n        color: #e9635e;\n    }\n"])));
 
 var StyledMark = _styledComponents.default.mark(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    background-color: #e9a8a1; \n    border-radius: 0.2em 0.2em;\n    \n"])));
 
@@ -36585,11 +36585,11 @@ var Navigation = function Navigation() {
     to: "/wish"
   }, "Wish List")), _react.default.createElement("li", null, _react.default.createElement(StyledMark, null, _react.default.createElement(_reactRouterDom.Link, {
     to: "anime/new"
-  }, "+ new Anime"))), _react.default.createElement("li", null, _react.default.createElement(StyledMark, null, _react.default.createElement(_reactRouterDom.Link, {
+  }, "++ Anime"))), _react.default.createElement("li", null, _react.default.createElement(StyledMark, null, _react.default.createElement(_reactRouterDom.Link, {
     to: "manga/new"
-  }, "+ new Manga"))), _react.default.createElement("li", null, _react.default.createElement(StyledMark, null, _react.default.createElement(_reactRouterDom.Link, {
+  }, "++ Manga"))), _react.default.createElement("li", null, _react.default.createElement(StyledMark, null, _react.default.createElement(_reactRouterDom.Link, {
     to: "wish/new"
-  }, "+ new Wish")))));
+  }, "++ Wish")))));
 };
 
 var _default = Navigation;
@@ -64466,21 +64466,29 @@ var _dateFns = require("date-fns");
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-var _templateObject, _templateObject2, _templateObject3;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var StyledNote = _styledComponents.default.article(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 800px;\n    margin: 0 auto;\n    margin-bottom: 2em;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    padding-left: 1em;\n    padding-right: 1em;\n    border-radius: 10px;\n    background-color: #e9a8a1;\n\n"])));
+var StyledNote = _styledComponents.default.article(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 600px;\n    margin: 0 auto;\n    margin-bottom: 2em;\n    padding-top: 0.5em;\n    padding-bottom: 1em;\n    padding-left: 1.5em;\n    padding-right: 1.5em;\n    border-radius: 10px;\n    background-color: #f4d4d3;\n\n"])));
 
-var MetaInfoTime = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 500px;\n    height: 50px;  \n    \n"])));
+var MetaData = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    width: 100%;\n    \n"])));
 
-var StyledMark = _styledComponents.default.mark(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    background-color: #e9635e; \n    border-radius: 0.5em 0.3em;\n    color: #6b0003;\n    \n"])));
+var MetaInfo = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 300px;\n    height: 50px;  \n    \n"])));
+
+var MetaInfoNumber = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 300px;\n    height: 50px;  \n    margin-top: 0px; \n    text-align: right; \n    \n"])));
+
+var StyledMark = _styledComponents.default.mark(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    background-color: #e9a8a1; \n    border-radius: 0.5em 0.3em;\n    color: #6b0003;\n    \n"])));
+
+var StyledTitle = _styledComponents.default.h3(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    color: #ca1414;\n"])));
+
+var StyledInfo = _styledComponents.default.em(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    color: #ca1414;\n"])));
 
 var NoteAll = function NoteAll(_ref) {
   var note = _ref.note;
-  return _react.default.createElement(StyledNote, null, _react.default.createElement("h3", null, note.title), _react.default.createElement("h4", null, _react.default.createElement("em", null, "Number "), _react.default.createElement(StyledMark, null, note.number)), _react.default.createElement(_reactMarkdown.default, {
+  return _react.default.createElement(StyledNote, null, _react.default.createElement(MetaData, null, _react.default.createElement(MetaInfo, null, _react.default.createElement(StyledTitle, null, note.title)), _react.default.createElement(MetaInfoNumber, null, _react.default.createElement("h4", null, _react.default.createElement(StyledInfo, null, "Number "), _react.default.createElement(StyledMark, null, note.number)))), _react.default.createElement(_reactMarkdown.default, {
     source: note.content
   }));
 };
@@ -83085,27 +83093,25 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _DeleteWish = _interopRequireDefault(require("./DeleteWish"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var StyledNote = _styledComponents.default.article(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 800px;\n    margin: 0 auto;\n    margin-bottom: 2em;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    padding-left: 1em;\n    padding-right: 1em;\n    border-radius: 10px;\n    background-color: #e9a8a1;\n\n"])));
+var StyledNote = _styledComponents.default.article(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 800px;\n    margin: 0 auto;\n    margin-bottom: 2em;\n    padding-top: 0.5em;\n    padding-bottom: 1em;\n    padding-left: 1.5em;\n    padding-right: 1.5em;\n    border-radius: 10px;\n    background-color: #f4d4d3;\n\n"])));
 
 var MetaData = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    width: 100%;\n    \n"])));
 
-var MetaInfo = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n\n    width: 500px;\n    height: 100px;\n  \n"])));
+var StyledMark = _styledComponents.default.mark(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    background-color: #e9a8a1; \n    border-radius: 0.5em 0.3em;\n    color: #6b0003;\n    \n"])));
 
-var LinkOptions = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    width: 500px;\n    height: 50px; \n    text-align: right;   \n    \n"])));
+var StyledTitle = _styledComponents.default.h3(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    color: #ca1414;\n"])));
 
-var MetaInfoType = _styledComponents.default.div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    width: 500px;\n    height: 50px;  \n    \n"])));
-
-var StyledMark = _styledComponents.default.mark(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    background-color: #e9635e; \n    border-radius: 0.5em 0.3em;\n    color: #6b0003;\n    \n"])));
+var StyledInfo = _styledComponents.default.em(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    color: #ca1414;\n"])));
 
 var NoteWish = function NoteWish(_ref) {
   var note = _ref.note;
-  return _react.default.createElement(StyledNote, null, _react.default.createElement(MetaData, null, _react.default.createElement("h3", null, note.title), _react.default.createElement("h4", null, _react.default.createElement("em", null, "Type "), _react.default.createElement(StyledMark, null, note.type)), _react.default.createElement(_DeleteWish.default, {
+  return _react.default.createElement(StyledNote, null, _react.default.createElement(MetaData, null, _react.default.createElement(StyledTitle, null, note.title), _react.default.createElement("h4", null, _react.default.createElement(StyledInfo, null, "Type "), _react.default.createElement(StyledMark, null, note.type)), _react.default.createElement(_DeleteWish.default, {
     id: note._id
   })), _react.default.createElement(_reactMarkdown.default, {
     source: note.content
@@ -83479,13 +83485,13 @@ var _DeleteAnime = _interopRequireDefault(require("./DeleteAnime"));
 
 var _DeleteManga = _interopRequireDefault(require("./DeleteManga"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var StyledNote = _styledComponents.default.article(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 800px;\n    margin: 0 auto;\n    margin-bottom: 2em;\n    padding-top: 1em;\n    padding-bottom: 1em;\n    padding-left: 1em;\n    padding-right: 1em;\n    border-radius: 10px;\n    background-color: #e9a8a1;\n\n"])));
+var StyledNote = _styledComponents.default.article(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    max-width: 800px;\n    margin: 0 auto;\n    margin-bottom: 2em;\n    padding-top: 0.5em;\n    padding-bottom: 1em;\n    padding-left: 1.5em;\n    padding-right: 1.5em;\n    border-radius: 10px;\n    background-color: #f4d4d3;\n\n"])));
 
 var MetaData = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    width: 100%;\n    \n"])));
 
@@ -83495,11 +83501,15 @@ var LinkOptions = _styledComponents.default.div(_templateObject4 || (_templateOb
 
 var MetaInfoTime = _styledComponents.default.div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    width: 500px;\n    height: 100px;  \n    margin-top: 15px;\n    text-align: justify-all;  \n    \n"])));
 
-var StyledMark = _styledComponents.default.mark(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    background-color: #e9635e; \n    border-radius: 0.5em 0.3em;\n    color: #6b0003;\n    \n"])));
+var StyledMark = _styledComponents.default.mark(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    background-color: #e9a8a1; \n    border-radius: 0.5em 0.3em;\n    color: #6b0003;\n    \n"])));
+
+var StyledTitle = _styledComponents.default.h3(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    color: #ca1414;\n"])));
+
+var StyledInfo = _styledComponents.default.em(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    color: #ca1414;\n"])));
 
 var Note = function Note(_ref) {
   var note = _ref.note;
-  return _react.default.createElement(StyledNote, null, _react.default.createElement(MetaData, null, _react.default.createElement(MetaInfo, null, _react.default.createElement("h3", null, note.title), _react.default.createElement("em", null, "Number "), _react.default.createElement(StyledMark, null, note.number)), _react.default.createElement(MetaInfoTime, null, _react.default.createElement("em", null, "created at "), " ", (0, _dateFns.format)(new Date(note.createdAt), 'MM dd yyyy H:mm'), " ", _react.default.createElement("br", null), _react.default.createElement("em", null, "updated at "), (0, _dateFns.format)(new Date(note.updatedAt), 'MM dd yyyy H:mm')), _react.default.createElement(LinkOptions, null, document.title == "Animes" ? _react.default.createElement(_reactRouterDom.Link, {
+  return _react.default.createElement(StyledNote, null, _react.default.createElement(MetaData, null, _react.default.createElement(MetaInfo, null, _react.default.createElement(StyledTitle, null, note.title), _react.default.createElement("h4", null, _react.default.createElement(StyledInfo, null, "Number "), _react.default.createElement(StyledMark, null, note.number))), _react.default.createElement(MetaInfoTime, null, _react.default.createElement(StyledInfo, null, "created at "), " ", (0, _dateFns.format)(new Date(note.createdAt), 'MM dd yyyy H:mm'), " ", _react.default.createElement("br", null), _react.default.createElement(StyledInfo, null, "updated at "), (0, _dateFns.format)(new Date(note.updatedAt), 'MM dd yyyy H:mm')), _react.default.createElement(LinkOptions, null, document.title == "Animes" ? _react.default.createElement(_reactRouterDom.Link, {
     to: "anime/edit/".concat(note._id)
   }, _react.default.createElement(_bi.BiPencil, {
     size: "1.5em"
@@ -87072,7 +87082,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62890" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65518" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

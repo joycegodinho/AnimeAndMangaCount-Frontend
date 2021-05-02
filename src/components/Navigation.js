@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
-    padding: 2em;
-    background-color: #f4d4d3;
+    padding: 4em;
+    background-color: #FEF8FA;
 
 
     @media (max-width: 700px) {
@@ -13,7 +13,7 @@ const Nav = styled.nav`
 
     @media (min-width: 700px) {
         position: fixed;
-        width: 180px;
+        width: 250px;
         height: calc(100% - 64px);
     }
 `;
@@ -29,7 +29,7 @@ const NavList = styled.ul`
     a {
         text-decoration: none;
         font-weight: bold;
-        font-size: 1.1em;
+        font-size: 1.18em;
         color: #6b0003;
     }
 
@@ -68,19 +68,19 @@ const Navigation = () => {
                 </li>
                 <li>
                     <StyledMark>
-                        <Link to='anime/new'>+ new Anime</Link>
+                        <Link to='anime/new'>++ Anime</Link>
                     </StyledMark>
                     
                 </li>
                 <li>
                     <StyledMark>
-                        <Link to='manga/new'>+ new Manga</Link>
+                        <Link to='manga/new'>++ Manga</Link>
                     </StyledMark>
                     
                 </li>
                 <li>
                     <StyledMark>
-                        <Link to='wish/new'>+ new Wish</Link>
+                        <Link to='wish/new'>++ Wish</Link>
                     </StyledMark>
                     
                 </li>

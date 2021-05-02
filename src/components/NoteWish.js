@@ -9,12 +9,12 @@ const StyledNote = styled.article`
     max-width: 800px;
     margin: 0 auto;
     margin-bottom: 2em;
-    padding-top: 1em;
+    padding-top: 0.5em;
     padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
     border-radius: 10px;
-    background-color: #e9a8a1;
+    background-color: #f4d4d3;
 
 `;
 
@@ -26,41 +26,29 @@ const MetaData = styled.div`
     width: 100%;
     
 `;
-const MetaInfo = styled.div`
-
-    width: 500px;
-    height: 100px;
-  
-`;
-
-const LinkOptions = styled.div`
-    width: 500px;
-    height: 50px; 
-    text-align: right;   
-    
-`
-
-
-const MetaInfoType = styled.div`
-    width: 500px;
-    height: 50px;  
-    
-`;
 
 const StyledMark = styled.mark`
-    background-color: #e9635e; 
+    background-color: #e9a8a1; 
     border-radius: 0.5em 0.3em;
     color: #6b0003;
     
 `;
 
+const StyledTitle = styled.h3`
+    color: #ca1414;
+`;
+
+const StyledInfo = styled.em`
+    color: #ca1414;
+`
+
 const NoteWish = ({ note }) => {
     return(
     <StyledNote>
         <MetaData>
-            <h3>{note.title}</h3>
+            <StyledTitle>{note.title}</StyledTitle>
             <h4>
-                <em>Type </em>
+                <StyledInfo>Type </StyledInfo>
                     <StyledMark>
                         {note.type}
                     </StyledMark>

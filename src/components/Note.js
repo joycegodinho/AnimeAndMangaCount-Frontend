@@ -13,12 +13,12 @@ const StyledNote = styled.article`
     max-width: 800px;
     margin: 0 auto;
     margin-bottom: 2em;
-    padding-top: 1em;
+    padding-top: 0.5em;
     padding-bottom: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
     border-radius: 10px;
-    background-color: #e9a8a1;
+    background-color: #f4d4d3;
 
 `;
 const MetaData = styled.div`
@@ -55,11 +55,20 @@ const MetaInfoTime = styled.div`
 `;
 
 const StyledMark = styled.mark`
-    background-color: #e9635e; 
+    background-color: #e9a8a1; 
     border-radius: 0.5em 0.3em;
     color: #6b0003;
     
 `;
+
+const StyledTitle = styled.h3`
+    color: #ca1414;
+`
+const StyledInfo = styled.em`
+    color: #ca1414;
+`
+
+
 
 const Note = ({ note }) => {
     return(
@@ -67,18 +76,18 @@ const Note = ({ note }) => {
         <MetaData>
 
             <MetaInfo>
-                <h3>{note.title}</h3>
-        
-                        <em>Number </em>
-                            <StyledMark>
-                                {note.number}
-                            </StyledMark>
-                        
+                <StyledTitle>{note.title}</StyledTitle>
+                        <h4>
+                            <StyledInfo>Number </StyledInfo>
+                                <StyledMark>
+                                    {note.number}
+                                </StyledMark>
+                        </h4>           
             </MetaInfo>
         
             <MetaInfoTime>
-                <em>created at </em> {format(new Date(note.createdAt), 'MM dd yyyy H:mm')} <br /> 
-                <em>updated at </em>{format(new Date(note.updatedAt), 'MM dd yyyy H:mm')}
+                <StyledInfo>created at </StyledInfo> {format(new Date(note.createdAt), 'MM dd yyyy H:mm')} <br /> 
+                <StyledInfo>updated at </StyledInfo>{format(new Date(note.updatedAt), 'MM dd yyyy H:mm')}
             </MetaInfoTime> 
 
             <LinkOptions>

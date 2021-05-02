@@ -17,10 +17,9 @@ export default createGlobalStyle `
 
     body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-        background-color: #FFFFFF;
         line-height: 1.4;
         color: #6b0003;
-        background-color: #f4d4d3;
+        background-color: #FEF8FA;
     }
 
     a:link, 

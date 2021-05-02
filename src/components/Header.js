@@ -8,18 +8,18 @@ const HeaderBar = styled.header`
     height: 64px
     position: fixed;
     align-items: center;
-    background-color: #f4d4d3;
+    background-color: #FEF8FA;
     box-shadow: 0 0 1.5px 0 rgba(0, 0, 0, 0.25);
     z-index: 1;
 
 `;
 
 const LogoText = styled.h1`
-    margin: 150px;
+    margin: 220px;
     margin-top: 40px;
     padding: 0;
     display: inline;
-    color: #6b0003;
+    color: #ca1414;
 `;
 
 
